@@ -8,10 +8,13 @@
 <!-- Bootstrap Core CSS -->
 <link href="<c:url value = "/resources/bootstrap/css/bootstrap.css"/>"
 	rel="stylesheet">
+<link href="<c:url value = "/resources/bootstrap/css/bootstrap-tooltip.css"/>"
+	rel="stylesheet">
 <link
 	href="<c:url value = "/resources/bootstrap/css/bootstrap-theme.css"/>"
 	rel="stylesheet">
-<script src="<c:url value = "/resources/bootstrap/jquery/jquery-1.11.1.js"/>"></script>
+<script
+	src="<c:url value = "/resources/bootstrap/jquery/jquery-1.11.1.js"/>"></script>
 <script src="<c:url value = "/resources/bootstrap/js/bootstrap.js"/>"></script>
 </head>
 <body>

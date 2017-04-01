@@ -43,44 +43,45 @@
 		</div>
 	</form:form>
 	<div class="row">
-			<div class="panel panel-primary">
-				<div class="panel-heading">User Information</div>
-				<div class="panel-body">
-					<table class="table table-bordered table-responsive" id = "tblData">
-						<thead>
+		<div class="panel panel-primary">
+			<div class="panel-heading">User Information</div>
+			<div class="panel-body">
+				<table class="table table-bordered table-responsive" id="tblData">
+					<thead>
+						<tr>
+							<th>First Name</th>
+							<th>Last Name</th>
+							<th>Contact No</th>
+							<th>Address</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach var="userinfo" items="${userinfo}">
 							<tr>
-								<th>First Name</th>
-								<th>Last Name</th>
-								<th>Contact No</th>
-								<th>Address</th>
-								<th>Actions</th>
-							</tr>
-						</thead>
-						<tbody>
-							<c:forEach var="userinfo" items="${userinfo}">
-								<tr>
-									<td><c:out value="${userinfo.fname}" /></td>
-									<td><c:out value="${userinfo.lname}" /></td>
-									<td><c:out value="${userinfo.contact}" /></td>
-									<td><c:out value="${userinfo.address}" /></td>
-									<td width="18%"><a
-										href="<c:url value = "/edit/${userinfo.userId}"/>"
-										class="btn btn-fill btn-primary"> <span
-											class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-											Edit
-									</a> <a href="<c:url value = "/delete/${userinfo.userId}"/>"
-										class="btn btn-fill btn-danger btn-md"
-										onclick="if (!confirm('Are you sure you want to delete?'))
+								<td><c:out value="${userinfo.fname}" /></td>
+								<td><c:out value="${userinfo.lname}" /></td>
+								<td><c:out value="${userinfo.contact}" /></td>
+								<td><c:out value="${userinfo.address}" /></td>
+								<td width="18%"><a
+									href="<c:url value = "/edit/${userinfo.userId}"/>"
+									class="btn btn-fill btn-primary" data-toggle="tooltip"
+									data-placement="left" title="Edit"
+									data-original-title="Tooltip on bottom" class="red-tooltip">
+										<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+								</a> <a href="<c:url value = "/delete/${userinfo.userId}"/>"
+									class="btn btn-fill btn-danger btn-md" data-toggle="tooltip"
+									data-placement="right" title="Delete"
+									onclick="if (!confirm('Are you sure you want to delete?'))
                                                                return false;">
-											<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-											Delete
-									</a></td>
-								</tr>
-							</c:forEach>
-						</tbody>
-					</table>
-				</div>
+										<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+								</a></td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
 			</div>
+		</div>
 	</div>
 
 	<ul class="pagination">
@@ -121,3 +122,9 @@
 <%@include file="/WEB-INF/views/fragment/footer.jsp"%>
 <%@include file="/WEB-INF/views/fragment/respagination.jsp"%>
 <%@include file="/WEB-INF/views/fragment/datatable.jsp"%>
+
+<script>
+	$(document).ready(function() {
+		$('[data-toggle="tooltip"]').tooltip();
+	});
+</script>

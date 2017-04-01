@@ -36,7 +36,8 @@ public class UserController {
 	@GetMapping("/user")
 	public String display(Model model) {
 		try {
-			Page<User> page = pagination.getDeploymentLog(1);
+			userPageNo = 1; 
+			Page<User> page = pagination.getDeploymentLog(userPageNo);
 			int current = page.getNumber() + 1;
 			int begin = Math.max(1, current - 5);
 			int end = Math.min(begin + 10, page.getTotalPages());
